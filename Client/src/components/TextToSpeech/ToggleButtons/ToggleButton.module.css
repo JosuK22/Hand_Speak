@@ -1,0 +1,183 @@
+/* First toggle button CSS - styles for variant "first" */
+.toggleButtonCover {
+    background: linear-gradient(90deg, rgba(69, 69, 69, 1) 0%, rgba(219, 219, 238, 1) 78%, rgba(255, 255, 255, 1) 100%);
+    padding: 4px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+  
+  .toggleButtonCover.checked {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(219, 219, 238, 1) 78%, rgba(69, 69, 69, 1) 100%);
+    box-shadow: 0 0 10px rgb(67, 251, 89);
+  }
+  
+  .knobs,
+  .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .button {
+    position: relative;
+    width: 250px;
+    height: 68px;
+    overflow: hidden;
+  }
+  
+  .checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  .knobs {
+    z-index: 2;
+  }
+  
+  .layer {
+    width: 100%;
+    transition: 0.3s ease all;
+    z-index: 1;
+    background: rgba(25, 11, 46, 1);
+    box-shadow: -10px -20px 50px 0px rgba(44, 20, 81, 1) inset, 20px 20px 50px 0px rgba(8, 2, 18, 1) inset;
+  }
+  
+  .button.r,
+  .button.r .layer {
+    border-radius: 100px;
+  }
+  
+  .knobText {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 60px;
+    height: 60px;
+    color: #ee0808;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    padding: 9px 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  }
+  
+  .checkbox:checked + .knobs .knobText {
+    content: "ON";
+    left: 186px;
+    color: green;
+    
+  }
+
+  .checkbox:checked ~ .layer {
+    background: rgba(25, 11, 46, 1);
+  }
+  
+  .logoContainer {
+    position: absolute;
+    top: 55%;
+    right: 20px;
+    transform: translateY(-50%);
+    transition: 0.3s ease all;
+    z-index: 4;
+  }
+  
+  .checkedLogo {
+    right: auto;
+    left: 20px;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+  }
+  
+  .checkedLogo .logo {
+    transform: rotate(15deg);
+  }
+  
+  /* Second toggle button CSS - styles for variant "second" */
+  .checkboxInput {
+    display: none;
+  }
+  
+  .toggleSwitch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100px;
+    height: 38px;
+    background-color: rgb(199, 199, 199);
+    border-radius: 20px;
+    cursor: pointer;
+    transition-duration: .3s;
+  }
+  
+  .toggleSwitch::after {
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    left: 0px;
+    background: conic-gradient(rgb(104, 104, 104), white, rgb(104, 104, 104), white, rgb(104, 104, 104));
+    border-radius: 50%;
+    transition-duration: .3s;
+    box-shadow: 5px 2px 7px rgba(8, 8, 8, 0.308);
+  }
+  
+  .checkboxInput:checked + .toggleSwitch::after {
+    transform: translateX(160%);
+    transition-duration: .3s;
+  }
+  
+  .checkboxInput:checked + .toggleSwitch {
+    background-color: rgb(153, 197, 151);
+    transition-duration: .3s;
+    box-shadow: 0px 0px 5px rgba(44, 242, 60, 0.5);
+  }
+  
+  .text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+    transition: opacity 0.3s ease;
+  }
+  
+  .text.off {
+    right: 10px;
+    opacity: 1;
+    color: red;
+  }
+  
+  .text.on {
+    left: 10px;
+    opacity: 0;
+  }
+  
+  .checkboxInput:checked + .toggleSwitch .text.off {
+    opacity: 0;
+  }
+  
+  .checkboxInput:checked + .toggleSwitch .text.on {
+    opacity: 1;
+  }
+  

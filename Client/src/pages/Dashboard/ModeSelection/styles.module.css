@@ -1,0 +1,36 @@
+.wrapper{
+    display: flex;
+    
+    height: 100%;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+    color: white;
+    width: 100%;
+  }
+  .navLeft{
+    margin-left: 1rem;
+  }
+  .navRight{
+    margin-right: 1rem;
+  }
+  .navLeft, .navRight {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .navLeft i, .navRight i {
+    padding: 10px;
+  }
+  
+  .navLeft i:hover, .navRight i:hover {
+    color: #f4a261; /* Change color on hover */
+  }
+  

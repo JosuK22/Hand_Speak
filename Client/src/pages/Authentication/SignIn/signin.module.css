@@ -1,0 +1,45 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    
+  }
+  
+  .inputGroup {
+    margin-bottom: 15px;
+  }
+  
+  .inputGroup label {
+    font-size: 14px;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none; /* Remove all borders */
+    border-bottom: 1px solid #ccc; /* Add only a bottom border */
+    border-radius: 0; /* Ensure no rounded corners */
+}
+  
+  .forgotPassword {
+    text-align: right;
+    margin-bottom: 15px;
+  }
+  
+  .forgotPassword a {
+    color: #2b1a47;
+    font-size: 12px;
+  }
+  
+  .button {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+    font-weight: 600;
+  }
+  

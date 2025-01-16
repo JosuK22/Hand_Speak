@@ -1,0 +1,65 @@
+/* Wrapper styles */
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    color: white;
+}
+
+/* Card Styles */
+.card {
+    width: 45%;
+    height: 200px;
+    min-width: 450px;
+    max-width: 550px;
+    border-radius: 30px;
+    background: rgba(25, 11, 46, 1);
+    box-shadow: rgba(44, 20, 81, 1) -10px -20px 50px 0px inset, rgba(8, 2, 18, 1) 20px 20px 50px 0px inset;
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Left and Right Card Sections */
+.left, .right {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;  /* Adjust card width on smaller screens */
+        min-width: 300px; /* Minimize the width for smaller screens */
+        max-width: 500px; /* Set max width for smaller screens */
+       
+    }
+
+    .left, .right {
+        width: 100%;  /* Stack left and right sections on top of each other */
+        height: auto;  /* Adjust height for the stacked layout */
+    }
+}
+
+/* Media Query for very small screens (like mobile) */
+@media (max-width: 480px) {
+    .card {
+        width: 85%;  /* Make card even narrower on very small screens */
+        min-width: 250px;  /* Set a smaller min-width for very small screens */
+        max-width: 450px; /* Set a max-width for very small screens */
+        height: auto; /* Allow the card to adjust its height */
+    }
+
+    .left, .right {
+        height: 100%;
+        min-height: 150px;
+    }
+}

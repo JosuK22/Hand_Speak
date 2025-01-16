@@ -1,0 +1,40 @@
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.card {
+    width: 45%;
+    height: 300px;
+    min-width: 300px;
+    border-radius: 30px;
+    background: rgba(25, 11, 46, 1);
+    box-shadow: rgba(44, 20, 81, 1) -10px -20px 50px 0px inset, rgba(8, 2, 18, 1) 20px 20px 50px 0px inset;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textBar{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    
+  }
+
+  .voice{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    font-size: 2.2rem;
+  }

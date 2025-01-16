@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Julee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&display=swap');
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--primary-color); 
+    position: relative;
+    overflow: hidden;
+    transition: background-color 1s ease; 
+}
+
+.circle {
+    width: 40vh;
+    height: 40vh;
+    border-radius: 50%;
+    background-color: var(--secondary-color); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 0;
+    animation: expandCircle 4s forwards; 
+}
+
+@keyframes expandCircle {
+    0% {
+        width: 40vh;
+        height: 40vh;
+        border-radius: 50%;
+        background-color: var(--secondary-color); 
+    }
+    20%{
+        width: 40vh;
+        height: 40vh;
+        border-radius: 50%;
+        background-color: var(--secondary-color); 
+    }
+    40%{
+        width: 40vh;
+        height: 40vh;
+        border-radius: 50%;
+        background-color: var(--secondary-color); 
+    }
+    100% {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        background-color: var(--secondary-color); 
+    }
+}
+
+.fullScreen {
+    background-color: var(--secondary-color); 
+}
+
+.logo1 {
+    margin-top: 7rem;
+    max-width: 35vh; 
+    max-height: 35vh;
+    object-fit: contain;
+    z-index: 1;
+    animation: shrinkLogo 4s forwards; 
+}
+
+@keyframes shrinkLogo {
+    0% {
+        margin-top: 7rem;
+        max-width: 35vh;
+        max-height: 35vh;
+    }
+    20% {
+        margin-top: 7rem;
+        max-width: 35vh;
+        max-height: 35vh;
+    }
+    40% {
+        margin-top: 7rem;
+        max-width: 35vh;
+        max-height: 35vh;
+    }
+    100% {
+        margin-top: 0rem;
+        max-width: 25vh; 
+        max-height: 25vh;
+    }
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.showText {
+    opacity: 1; 
+    z-index: 0;
+}
+
+.appName {
+    font-family: 'Julee', sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 1rem;
+    color: white;
+}
+
+.text {
+    font-family: 'Cabin Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 0.4rem;
+    color: white;
+    z-index: -10;
+}
