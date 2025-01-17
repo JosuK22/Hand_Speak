@@ -1,0 +1,815 @@
+*****DASHBOARD*****
+
+1.
+
+====================HTML============================
+import { useNavigate } from 'react-router-dom';
+//import { useState } from 'react';
+import styles from './Dashboard.module.css';
+//import HandSpeak from '../../assets/Logo/logo1.png'
+
+const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleCommunicationClick = () => {
+    navigate('/modes/communication'); // Navigate to the Communication route
+  };
+
+  const handleAutomationClick = () => {
+    navigate('/modes/automation'); // Navigate to the Automation route
+  };
+
+  return (
+    <div className={styles.wrapper}>
+
+      <div className={styles.card}>
+        <p>Device Status</p>
+
+        <div className={styles.switchHolder}>
+          <div className={styles.switchLabel}>
+              <span className={styles.glove}>Gloves</span>
+          </div>
+          <div className={styles.switchToggle}>
+            <input type="checkbox" id="bluetooth" />
+            <label htmlFor="bluetooth"></label>
+          </div>
+        </div>
+
+      </div>
+
+      
+      <h1>MODE</h1>
+      <div className={styles.switchContainer}>
+        <button className={styles.button} onClick={handleCommunicationClick}>
+          <div className={styles.wrap}>
+            <p>COMMUNICATION</p>
+          </div>
+        </button>
+
+        <button className={styles.button} onClick={handleAutomationClick}>
+          <div className={styles.wrap}>
+            <p>AUTOMATION</p>
+          </div>
+        </button>
+      </div>
+      
+    </div>
+  );
+};
+
+export default Dashboard;
+
+
+============================CSS======================
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor:wght@400&display=swap');
+
+/* Wrapper styles */
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    gap: 5rem;
+}
+.card{
+     width: 390px;
+    height: 254px;
+    border-radius: 30px;
+    /* background: #e0e0e0; */
+    box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Toggle Switch */
+.switchHolder {
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, .7),
+          10px 10px 10px rgba(0, 0, 0, .2),
+          inset 8px 8px 15px rgba(255, 255, 255, .7),
+          inset 10px 10px 10px rgba(0, 0, 0, .2);
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .switchLabel {
+    padding: 0 20px 0 10px;
+  }
+  
+  .glove{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--secondary-color);
+  }
+  
+  .switchToggle {
+    height: 40px;
+  }
+  
+  .switchToggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -2;
+  }
+  
+  .switchToggle input[type="checkbox"] + label {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: inset -8px -8px 15px rgba(255, 255, 255, .6),
+          inset 10px 10px 10px rgba(0, 0, 0, .25);
+  }
+  
+  .switchToggle input[type="checkbox"] + label::before {
+    position: absolute;
+    content: 'OFF';
+    font-size: 13px;
+    text-align: center;
+    line-height: 25px;
+    top: 8px;
+    left: 8px;
+    width: 45px;
+    height: 25px;
+    color: red;
+    border-radius: 20px;
+    background-color: #eeeeee;
+    box-shadow: -3px -3px 5px rgba(255, 255, 255, .5),
+          3px 3px 5px rgba(0, 0, 0, .25);
+    transition: .3s ease-in-out;
+  }
+  
+  .switchToggle input[type="checkbox"]:checked + label::before {
+    left: 50%;
+    content: 'ON';
+    color: #fff;
+    background-color: #00b33c;
+    box-shadow: -3px -3px 5px rgba(255, 255, 255, .5),
+          3px 3px 5px #00b33c;
+  }
+  
+
+.switchContainer{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    /* background-color: #00b33c; */
+}
+
+/* Button.module.css */
+.button {
+  --white: #ffe7ff;
+  --bg: #080808;
+  --radius: 100px;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  background-color: rgb(54, 38, 78);
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+.wrap {
+  font-size: 25px;
+  color: #ffffff;
+  width: 380px;
+  height: 100px;
+  border-radius: inherit;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wrap p span:nth-child(2) {
+  display: none;
+}
+
+.button:hover .wrap p span:nth-child(1) {
+  display: none;
+}
+
+.button:hover .wrap p span:nth-child(2) {
+  display: inline-block;
+}
+
+.wrap p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  transition: all 0.2s ease;
+  transform: translateY(2%);
+  mask-image: linear-gradient(to bottom, white 40%, transparent);
+}
+
+.wrap::before,
+.wrap::after {
+  content: "";
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.wrap::before {
+  left: -15%;
+  right: -15%;
+  bottom: 25%;
+  top: -100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.wrap::after {
+  left: 6%;
+  right: 6%;
+  top: 12%;
+  bottom: 40%;
+  border-radius: 22px 22px 0 0;
+  box-shadow: inset 0 10px 8px -10px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.button:hover {
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.4),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.7),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+.button:hover .wrap::before {
+  transform: translateY(-5%);
+}
+
+.button:hover .wrap::after {
+  opacity: 0.4;
+  transform: translateY(5%);
+}
+
+.button:hover .wrap p {
+  transform: translateY(-4%);
+}
+
+.button:active {
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.5),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.8),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.4),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+
+/* Apply Lexend font to the wrapper content */
+.wrapper h1 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 45.17px;
+    letter-spacing: 0.05em;
+    text-align: left;
+    text-underline-position: from-font;
+    color: var(--secondary-color);
+}
+
+/* Apply Kdam Thmor font to button text */
+.button p {
+    font-family: 'Kdam Thmor', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 45.17px;
+    letter-spacing: 0.05em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+}
+
+@media screen and (max-width: 480px) {
+    .wrapper {
+        gap: 2rem; 
+    }
+
+    .button {
+        width: 100%; 
+        height: auto; 
+        padding: 1rem; 
+    }
+
+    .wrap {
+        width: 100%; 
+        height: 60px; 
+        font-size: 18px; 
+    }
+
+    .wrapper h1 {
+        font-size: 20px; 
+        line-height: 15px;
+    }
+
+    .wrap p {
+        font-size: 15px;
+        line-height: 35px; 
+    }
+}
+
+/* For tablets (up to 768px) */
+@media screen and (max-width: 768px) {
+    .wrapper {
+        gap: 3rem; 
+    }
+
+    .button {
+        padding: .5rem; 
+        width: 70%;
+    }
+
+    .wrap {
+        width: 100%;
+        font-size: 18px; 
+        height: 80px; 
+    }
+
+    .wrapper h1 {
+        font-size: 30px;
+        line-height: 16px;
+    }
+
+    .wrap p {
+        font-size: 15px;
+        line-height: 40px;
+    }
+}
+
+---------------------------------------------------------------
+
+2. Regular
+
+====================JSX==================== 
+
+import { useNavigate } from 'react-router-dom';
+import styles from './Dashboard.module.css';
+
+const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleCommunicationClick = () => {
+    navigate('/modes/communication'); // Navigate to the Communication route
+  };
+
+  const handleAutomationClick = () => {
+    navigate('/modes/automation'); // Navigate to the Automation route
+  };
+
+  const handleLogoutClick = () => {
+    navigate('/auth');
+  }
+
+  return (
+    <div className={styles.wrapper}>
+       {/* -----Navbar----- */}
+            <nav className={styles.navbar}>
+              <div className={styles.navLeft}>
+                <i className="fas fa-sign-out-alt" onClick={handleLogoutClick}></i> {/* Logout icon */}
+              </div>
+              <div className={styles.navRight}>
+                {/* History / Device On-off */}
+              </div>
+            </nav>
+
+
+      
+      <h1>MODE</h1>
+      <div className={styles.switchContainer}>
+        <button className={styles.button} onClick={handleCommunicationClick}>
+          <div className={styles.wrap}>
+            <p>COMMUNICATION</p>
+          </div>
+        </button>
+
+        <button className={styles.button} onClick={handleAutomationClick}>
+          <div className={styles.wrap}>
+            <p>AUTOMATION</p>
+          </div>
+        </button>
+      </div>
+      
+    </div>
+  );
+};
+
+export default Dashboard;
+
+
+====================CSS====================
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor:wght@400&display=swap');
+
+/* Wrapper styles */
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    gap: 5rem;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    opacity: .8;
+    color:  var(--secondary-color);
+    width: 100%;
+  }
+  .navLeft{
+    margin-left: 1rem;
+  }
+  .navRight{
+    margin-right: 1rem;
+  }
+  .navLeft, .navRight {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .navLeft i, .navRight i {
+    padding: 10px;
+  }
+  
+  .navLeft i:hover, .navRight i:hover {
+    color: #f4a261; /* Change color on hover */
+  }
+  
+
+.switchContainer{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    flex-direction: column;
+}
+
+/* Button.module.css */
+.button {
+  --white: #ffe7ff;
+  --bg: #080808;
+  --radius: 100px;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  background-color: rgb(54, 38, 78);
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+.wrap {
+  font-size: 25px;
+  color: #ffffff;
+  width: 380px;
+  height: 100px;
+  border-radius: inherit;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wrap p span:nth-child(2) {
+  display: none;
+}
+
+.button:hover .wrap p span:nth-child(1) {
+  display: none;
+}
+
+.button:hover .wrap p span:nth-child(2) {
+  display: inline-block;
+}
+
+.wrap p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  transition: all 0.2s ease;
+  transform: translateY(2%);
+  mask-image: linear-gradient(to bottom, white 40%, transparent);
+}
+
+.wrap::before,
+.wrap::after {
+  content: "";
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.wrap::before {
+  left: -15%;
+  right: -15%;
+  bottom: 25%;
+  top: -100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.wrap::after {
+  left: 6%;
+  right: 6%;
+  top: 12%;
+  bottom: 40%;
+  border-radius: 22px 22px 0 0;
+  box-shadow: inset 0 10px 8px -10px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.button:hover {
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.4),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.7),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+.button:hover .wrap::before {
+  transform: translateY(-5%);
+}
+
+.button:hover .wrap::after {
+  opacity: 0.4;
+  transform: translateY(5%);
+}
+
+.button:hover .wrap p {
+  transform: translateY(-4%);
+}
+
+.button:active {
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.5),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.8),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.4),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+
+/* Apply Lexend font to the wrapper content */
+.wrapper h1 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 45.17px;
+    letter-spacing: 0.05em;
+    text-align: left;
+    text-underline-position: from-font;
+    color: var(--secondary-color);
+}
+
+/* Apply Kdam Thmor font to button text */
+.button p {
+    font-family: 'Kdam Thmor', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 45.17px;
+    letter-spacing: 0.05em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+}
+
+
+/* For tablets (up to 768px) */
+@media screen and (max-width: 768px) {
+    .wrapper {
+        gap: 3rem; 
+    }
+
+    .button {
+        padding: .5rem; 
+        width: 50%;
+    }
+
+    .wrap {
+        width: 100%;
+        font-size: 18px; 
+        height: 80px; 
+    }
+
+    .wrapper h1 {
+        font-size: 30px;
+        line-height: 16px;
+    }
+
+    .wrap p {
+        font-size: 15px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wrapper {
+        gap: 2rem; 
+    }
+
+    .button {
+        width: 80%; 
+        height: auto; 
+        padding: 1rem; 
+    }
+
+    .wrap {
+        width: 100%; 
+        height: 60px; 
+        font-size: 18px; 
+    }
+
+    .wrapper h1 {
+        font-size: 20px; 
+        line-height: 15px;
+    }
+
+    .wrap p {
+        font-size: 15px;
+        line-height: 35px; 
+    }
+}
+
+
+-----------------------------------------------------------
+
+3.
+
+
+
+
+
+Card + On/OFF Button
+
+====================JSX====================
+
+      {/* -----Card----- */}
+      <div className={styles.card}>
+        <div className={styles.cardContent}>
+          <p>Device Status</p>
+
+          {/* -----Switch Button----- */}
+          <div className={styles.switchWrapper}>
+            <input id="checkbox" type="checkbox" className={styles.checkbox} />
+              <label className={styles.switch} htmlFor="checkbox">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className={styles.slider}>
+                  <path
+                    d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"
+                  ></path>
+                </svg>
+              </label>
+          </div>
+          
+        </div>
+      </div>
+
+====================CSS====================
+
+/*-----Device Status Card----- */
+.card{
+    padding: 1rem;
+    background-color: #bbb1b1;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* ----- ON/OFF Switch----- */
+.switchWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .checkbox {
+    display: none;
+  }
+  
+  .switch {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(99, 99, 99);
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(126, 126, 126);
+    box-shadow: 0px 0px 3px rgb(2, 2, 2) inset;
+    transition: 0.5s;
+  }
+  
+  .switch svg {
+    width: 1.2em;
+  }
+  
+  .switch svg path {
+    fill: rgb(48, 48, 48);
+  }
+  
+  .checkbox:checked + .switch {
+    box-shadow:
+      0px 0px 1px rgb(151, 243, 255) inset,
+      0px 0px 2px rgb(151, 243, 255) inset,
+      0px 0px 10px rgb(151, 243, 255) inset,
+      0px 0px 40px rgb(151, 243, 255),
+      0px 0px 100px rgb(151, 243, 255),
+      0px 0px 5px rgb(151, 243, 255);
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(146, 180, 184);
+  }
+  
+  .checkbox:checked + .switch svg {
+    filter: drop-shadow(0px 0px 5px rgb(151, 243, 255));
+  }
+  
+  .checkbox:checked + .switch svg path {
+    fill: rgb(255, 255, 255);
+  }
+  
+  .checkbox:active + .switch {
+    transform: translate(0em, 0.1em);
+    box-shadow:
+      0px 0px 0.1px rgb(151, 243, 255) inset,
+      0px 0px 0.2px rgb(151, 243, 255) inset,
+      0px 0px 1px rgb(151, 243, 255) inset,
+      0px 0px 10px rgb(151, 243, 255),
+      0px 0px 50px rgb(151, 243, 255);
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(146, 180, 184);
+  }
+  
+  .checkbox:active + .switch svg path {
+    box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+    transform: translate(0em, 0.1em);
+  }
+  
+
