@@ -8,11 +8,6 @@ function App() {
     <div className='container'>
 
       <AppRoutes /> 
-      {/* <div className='contents'>
-      <ToggleButton/>
-      
-      </div> */}
-      
 
     </div>
   );

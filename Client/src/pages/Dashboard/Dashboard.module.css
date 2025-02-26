@@ -10,44 +10,175 @@
     justify-content: center;
     flex-direction: column;
     background-color: var(--primary-color);
-    gap: 4rem;
+    gap: 5rem;
 }
 
-/* Switch button styles */
-.switch {
-    background: linear-gradient(to right, rgb(54, 38, 78), rgb(249, 245, 255)); 
+/* -----Navbar----- */
+.navbar {
+    position: absolute;
+    top: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border-radius: 2rem;
-    width: calc(380px + .8rem);
-    height: calc(100px + .8rem);
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
-    border: none; 
-    outline: none;
-    cursor: pointer;
-}
-
-
-
-/* Button styling */
-.button {
-    width: 380px;
-    height: 100px;
-    background-color: var(--secondary-color);
-    border-radius: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
+    padding: 20px;
+    opacity: .8;
+    color:  var(--secondary-color);
+    width: 100%;
+  }
+  .navLeft{
+    margin-left: 1rem;
+  }
+  .navRight{
+    margin-right: 1rem;
+  }
+  .navLeft, .navRight {
     font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .navLeft i, .navRight i {
+    padding: 10px;
+  }
+  
+  .navLeft i:hover, .navRight i:hover {
+    color: #f4a261; 
+  }
+  
+
+.switchContainer{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    flex-direction: column;
+}
+
+/*-----Button----- */
+.button {
+  --white: #ffe7ff;
+  --bg: #080808;
+  --radius: 100px;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  opacity: .85;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  background-color: rgb(54, 38, 78);
+  transition: all 0.2s ease;
+  box-shadow:
+    inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+.wrap {
+  font-size: 25px;
+  color: #ffffff;
+  width: 380px;
+  height: 100px;
+  border-radius: inherit;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wrap p span:nth-child(2) {
+  display: none;
+}
+
+.button:hover .wrap p span:nth-child(1) {
+  display: none;
+}
+
+.button:hover .wrap p span:nth-child(2) {
+  display: inline-block;
+}
+
+.wrap p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  transition: all 0.2s ease;
+  transform: translateY(2%);
+  mask-image: linear-gradient(to bottom, white 40%, transparent);
+}
+
+.wrap::before,
+.wrap::after {
+  content: "";
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.wrap::before {
+  left: -15%;
+  right: -15%;
+  bottom: 25%;
+  top: -100%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.wrap::after {
+  left: 6%;
+  right: 6%;
+  top: 12%;
+  bottom: 40%;
+  border-radius: 22px 22px 0 0;
+  box-shadow: inset 0 10px 8px -10px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.button:hover {
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.4),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.7),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+}
+
+.button:hover .wrap::before {
+  transform: translateY(-5%);
+}
+
+.button:hover .wrap::after {
+  opacity: 0.4;
+  transform: translateY(5%);
+}
+
+.button:hover .wrap p {
+  transform: translateY(-4%);
+}
+
+.button:active {
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 0.3rem 0.5rem rgba(255, 255, 255, 0.5),
+    inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.8),
+    inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.4),
+    0 3rem 3rem rgba(0, 0, 0, 0.3),
+    0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
 }
 
 /* Apply Lexend font to the wrapper content */
 .wrapper h1 {
     font-family: 'Lexend', sans-serif;
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 400;
     line-height: 45.17px;
     letter-spacing: 0.05em;
@@ -66,20 +197,51 @@
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+    
 }
 
+
+/*-----For tablets (up to 768px)-----*/
+@media screen and (max-width: 768px) {
+    .wrapper {
+        gap: 3rem; 
+    }
+
+    .button {
+        padding: .5rem; 
+        width: 50%;
+    }
+
+    .wrap {
+        width: 100%;
+        font-size: 18px; 
+        height: 80px; 
+    }
+
+    .wrapper h1 {
+        font-size: 30px;
+        line-height: 16px;
+    }
+
+    .wrap p {
+        font-size: 15px;
+        line-height: 40px;
+    }
+}
+
+/*-----For Mobile (up to 480px)----- */
 @media screen and (max-width: 480px) {
     .wrapper {
         gap: 2rem; 
     }
 
-    .switch {
-        width: 100%; 
+    .button {
+        width: 80%; 
         height: auto; 
         padding: 1rem; 
     }
 
-    .button {
+    .wrap {
         width: 100%; 
         height: 60px; 
         font-size: 18px; 
@@ -90,37 +252,10 @@
         line-height: 15px;
     }
 
-    .button p {
+    .wrap p {
         font-size: 15px;
         line-height: 35px; 
     }
 }
 
-/* For tablets (up to 768px) */
-@media screen and (max-width: 768px) {
-    .wrapper {
-        gap: 3rem; 
-    }
-
-    .switch {
-        padding: .5rem; 
-        width: 70%;
-    }
-
-    .button {
-        width: 100%;
-        font-size: 18px; 
-        
-    }
-
-    .wrapper h1 {
-        font-size: 30px;
-        line-height: 16px;
-    }
-
-    .button p {
-        font-size: 20px;
-        line-height: 40px;
-    }
-}
 

@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router-dom';  // Import the useNavigate hook
+import { useNavigate } from 'react-router-dom';  
 import styles from "./signin.module.css";
 
 const SignIn = () => {
-  const navigate = useNavigate();  // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const handleSubmit = (e) => {
-    e.preventDefault();  // Prevent page reload on form submit
-    navigate('/dashboard');  // Redirect to the /navigate route
+    e.preventDefault();  
+    navigate('/dashboard');  
   };
 
   return (

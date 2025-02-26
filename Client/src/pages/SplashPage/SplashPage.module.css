@@ -25,7 +25,7 @@
     flex-direction: column;
     position: absolute;
     z-index: 0;
-    animation: expandCircle 4s forwards; 
+    animation: expandCircle 3s forwards; 
 }
 
 @keyframes expandCircle {
@@ -65,7 +65,7 @@
     max-height: 35vh;
     object-fit: contain;
     z-index: 1;
-    animation: shrinkLogo 4s forwards; 
+    animation: shrinkLogo 3s forwards; 
 }
 
 @keyframes shrinkLogo {

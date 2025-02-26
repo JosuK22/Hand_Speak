@@ -5,11 +5,13 @@ const Modes = () => {
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
-    navigate('/dashboard'); // Navigate to the Dashboard route
+    navigate('/dashboard'); 
   };
 
   return (
+
     <div className={styles.wrapper}>
+
       {/* -----Navbar----- */}
       <nav className={styles.navbar}>
         <div className={styles.navLeft}>
@@ -21,8 +23,10 @@ const Modes = () => {
       </nav>
 
       {/* Render the selected mode component here */}
-      <Outlet />
+      <Outlet/>
+      
     </div>
+
   );
 };
 

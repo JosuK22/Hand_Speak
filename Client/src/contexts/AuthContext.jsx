@@ -21,7 +21,9 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('http://localhost:8000/api/token/', {
+
+      //Server url + API
+      const response = await axios.post('http://localhost:8000/', {
         username,
         password,
       });
@@ -31,8 +33,8 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('authTokens', JSON.stringify({ access, refresh }));
       setAuthTokens({ access, refresh });
 
-      // Fetch user data if needed
-      const userInfo = await axios.get('http://localhost:8000/api/user/', {
+      // Fetch user data if needed (Server URL + API)
+      const userInfo = await axios.get('http://localhost:8000/', {
         headers: {
           Authorization: `Bearer ${access}`,
         },
@@ -58,5 +60,5 @@ export const AuthProvider = ({ children }) => {
 };
 
 AuthProvider.propTypes = {
-    children: PropTypes.node.isRequired,  // children can be any renderable React node
+    children: PropTypes.node.isRequired,  
   };

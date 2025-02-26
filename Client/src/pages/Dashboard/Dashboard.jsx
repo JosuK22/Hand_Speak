@@ -12,21 +12,43 @@ const Dashboard = () => {
     navigate('/modes/automation'); // Navigate to the Automation route
   };
 
+  const handleLogoutClick = () => {
+    navigate('/auth');
+  }
+
   return (
     <div className={styles.wrapper}>
+       {/* -----Navbar----- */}
+
+            <nav className={styles.navbar}>
+              <div className={styles.navLeft}>
+                <i className="fas fa-sign-out-alt" onClick={handleLogoutClick}></i> {/* Logout icon */}
+              </div>
+
+              <div className={styles.navRight}>
+                {/* History / Device On-off */}
+              </div>
+              
+            </nav>
+      
       <h1>MODE</h1>
 
-      <button className={styles.switch} onClick={handleCommunicationClick}>
-        <div className={styles.button}>
-          <p>COMMUNICATION</p>
-        </div>
-      </button>
+      <div className={styles.switchContainer}>
 
-      <button className={styles.switch} onClick={handleAutomationClick}>
-        <div className={styles.button}>
-          <p>AUTOMATION</p>
-        </div>
-      </button>
+        <button className={styles.button} onClick={handleCommunicationClick}>
+          <div className={styles.wrap}>
+            <p>COMMUNICATION</p>
+          </div>
+        </button>
+
+        <button className={styles.button} onClick={handleAutomationClick}>
+          <div className={styles.wrap}>
+            <p>AUTOMATION</p>
+          </div>
+        </button>
+
+      </div>
+      
     </div>
   );
 };

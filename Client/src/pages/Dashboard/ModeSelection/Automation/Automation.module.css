@@ -34,28 +34,28 @@
     gap: 1rem;
 }
 
-/* Media Query for smaller screens */
+/* Media Query for Tab screens */
 @media (max-width: 768px) {
     .card {
-        width: 90%;  /* Adjust card width on smaller screens */
-        min-width: 300px; /* Minimize the width for smaller screens */
-        max-width: 500px; /* Set max width for smaller screens */
+        width: 90%;  
+        min-width: 300px; 
+        max-width: 500px; 
        
     }
 
     .left, .right {
-        width: 100%;  /* Stack left and right sections on top of each other */
-        height: auto;  /* Adjust height for the stacked layout */
+        width: 100%;  
+        height: auto;  
     }
 }
 
-/* Media Query for very small screens (like mobile) */
+/* Media Query for mobile screens  */
 @media (max-width: 480px) {
     .card {
-        width: 85%;  /* Make card even narrower on very small screens */
-        min-width: 250px;  /* Set a smaller min-width for very small screens */
-        max-width: 450px; /* Set a max-width for very small screens */
-        height: auto; /* Allow the card to adjust its height */
+        width: 85%;  
+        min-width: 250px;  
+        max-width: 450px; 
+        height: auto; 
     }
 
     .left, .right {
